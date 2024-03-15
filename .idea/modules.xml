@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Veeam.iml" filepath="$PROJECT_DIR$/.idea/Veeam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Folder-synchronization.iml" filepath="$PROJECT_DIR$/.idea/Folder-synchronization.iml" />
     </modules>
   </component>
 </project>
