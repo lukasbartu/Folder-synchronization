@@ -102,9 +102,11 @@ if __name__ == "__main__":
                         help='Creates the destination folder if it doesn\'t exist.')
     args = parser.parse_args()
 
+
     # creates a log file if it doesn't exist
-    if os.path.exists(args.log_path + '/folder_sync.log'):
+    if os.path.exists(args.log_path + 'folder_sync.log'):
         log = set_loggers(args.log_path)
+        log.info("Log file found. Continuing logging in file.")
     else:
         log = set_loggers(args.log_path)
         log.info("Log file created.")
