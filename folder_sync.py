@@ -20,7 +20,7 @@ def set_loggers(log_path):
     stdout_handler.setLevel(logging.DEBUG)
     stdout_handler.setFormatter(formatter)
 
-    file_handler = logging.FileHandler(log_path + 'folder_sync.log')
+    file_handler = logging.FileHandler(os.path.abspath(log_path) + '/folder_sync.log')
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
 
@@ -102,9 +102,8 @@ if __name__ == "__main__":
                         help='Creates the destination folder if it doesn\'t exist.')
     args = parser.parse_args()
 
-
     # creates a log file if it doesn't exist
-    if os.path.exists(args.log_path + 'folder_sync.log'):
+    if os.path.exists(os.path.abspath(args.log_path) + '/folder_sync.log'):
         log = set_loggers(args.log_path)
         log.info("Log file found. Continuing logging in file.")
     else:
