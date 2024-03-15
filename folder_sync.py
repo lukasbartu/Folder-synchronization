@@ -10,11 +10,8 @@ from functools import partial
 from ischedule import schedule, run_loop
 
 
-# creates a logger that prints into log file and console
+# creates a logger that prints into log file and stdout
 def set_loggers(log_path):
-    if os.path.exists(log_path):
-        print("Log path doesn't exist.")
-        raise Exception
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
@@ -23,7 +20,7 @@ def set_loggers(log_path):
     stdout_handler.setLevel(logging.DEBUG)
     stdout_handler.setFormatter(formatter)
 
-    file_handler = logging.FileHandler(log_path + 'logs.log')
+    file_handler = logging.FileHandler(log_path + 'folder_sync.log')
     file_handler.setLevel(logging.DEBUG)
     file_handler.setFormatter(formatter)
 
@@ -106,7 +103,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # creates a log file if it doesn't exist
-    if os.path.exists(args.log_path):
+    if os.path.exists(args.log_path + '/folder_sync.log'):
         log = set_loggers(args.log_path)
     else:
         log = set_loggers(args.log_path)
